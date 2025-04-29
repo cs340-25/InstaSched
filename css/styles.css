@@ -1,0 +1,132 @@
+/* Page background & base styles */
+body {
+  background-color: #e0f7fa;
+  color: #333;
+}
+.navbar {
+  margin-bottom: 20px;
+}
+
+/* Build card styling */
+.build-card {
+  border: 2px solid #ff9800;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Two-column form */
+.form-grid {
+  display: flex;
+  gap: 20px;
+}
+.time-inputs {
+  flex: 1.5;
+}
+.preferences {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 6px;
+  column-gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.preferences h3 {
+  grid-column: span 2;
+  margin: 0 0 10px 20px;
+}
+.preferences label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 0.95rem;
+}
+.preferences label input[type="checkbox"] {
+  margin: 0 6px 0 0;
+}
+
+/* Form and schedule container borders */
+.build-card, .schedule-container {
+  border: 2px solid #ff9800;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Headings accent */
+h1, h2 {
+  color: #ff9800;
+  margin-top: 0;
+}
+
+/* Button styling */
+button, .btn {
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+button:hover, .btn:hover {
+  background-color: #e68900;
+}
+
+/* Input fields */
+input[type="text"] {
+  border: 1px solid #ff9800;
+  border-radius: 4px;
+  padding: 6px;
+}
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(255,152,0,0.7);
+}
+
+/* Schedule cards */
+.schedule-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.schedule-card {
+  background-color: #fff;
+  border: 1px solid #ff9800;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+.schedule-card:hover {
+  transform: translateY(-4px);
+}
+.time-block {
+  background-color: #4a90e2;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  border-bottom: 3px solid #ff9800;
+}
+.activity-name {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Accent colors alternating */
+.schedule-card:nth-child(4n+1) .time-block { background-color: #4a90e2; }
+.schedule-card:nth-child(4n+2) .time-block { background-color: #50e3c2; }
+.schedule-card:nth-child(4n+3) .time-block { background-color: #f5a623; }
+.schedule-card:nth-child(4n+4) .time-block { background-color: #9013fe; }

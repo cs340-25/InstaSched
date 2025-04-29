@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Activity Library | WellnessGen{% endblock %}
+{% block content %}
+<h2>Activity Library</h2>
+<div class="row">
+  {% for act in activities %}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ act.name }}</h5>
+          <p class="card-text">Duration: {{ act.duration }} min</p>
+          <div>
+            {% for tag in act.tags %}
+              <span class="badge bg-info text-dark">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

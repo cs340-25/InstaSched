@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wellness Schedule Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Wellness Schedule Generator</h1>
+    <form method="POST">
+        <div class="form-grid">
+          <!-- Left column: time & busy inputs -->
+          <div class="time-inputs">
+            <label for="start_time">Start Time (HH:MM):</label>
+            <input type="text" id="start_time" name="start_time" placeholder="08:00" required>
+      
+            <label for="end_time">End Time (HH:MM):</label>
+            <input type="text" id="end_time" name="end_time" placeholder="18:00" required>
+      
+            <label for="busy_periods">Busy Periods (e.g., 09:00-10:00, 13:00-14:00):</label>
+            <input type="text" id="busy_periods" name="busy_periods" placeholder="optional">
+          </div>
+      
+          <!-- Right column: preferences checklist -->
+          <div class="preferences">
+            <h3>Select Your Preferences:</h3>
+            <label><input type="checkbox" name="prefs" value="mindfulness"> Mindfulness</label>
+            <label><input type="checkbox" name="prefs" value="movement"> Movement</label>
+            <label><input type="checkbox" name="prefs" value="cardio"> Cardio</label>
+            <label><input type="checkbox" name="prefs" value="outdoors"> Outdoors</label>
+            <label><input type="checkbox" name="prefs" value="creative"> Creative</label>
+            <label><input type="checkbox" name="prefs" value="flexibility"> Flexibility</label>
+            <label><input type="checkbox" name="prefs" value="stress-relief"> Stress Relief</label>
+            <label><input type="checkbox" name="prefs" value="nutrition"> Nutrition</label>
+            <label><input type="checkbox" name="prefs" value="hydration"> Hydration</label>
+            <label><input type="checkbox" name="prefs" value="learning"> Learning</label>
+            <label><input type="checkbox" name="prefs" value="reflection"> Reflection</label>
+            <label><input type="checkbox" name="prefs" value="relaxation"> Relaxation</label>
+            <label><input type="checkbox" name="prefs" value="social"> Social</label>
+            <label><input type="checkbox" name="prefs" value="productivity"> Productivity</label>
+            <label><input type="checkbox" name="prefs" value="development"> Development</label>
+            <label><input type="checkbox" name="prefs" value="work"> Work</label>
+            <label><input type="checkbox" name="prefs" value="health"> Health</label>
+            <label><input type="checkbox" name="prefs" value="fun"> Fun</label>
+            <label><input type="checkbox" name="prefs" value="mental"> Mental</label>
+            <label><input type="checkbox" name="prefs" value="finance"> Finance</label>
+            <label><input type="checkbox" name="prefs" value="organization"> Organization</label>
+            <label><input type="checkbox" name="prefs" value="planning"> Planning</label>
+            <label><input type="checkbox" name="prefs" value="focus"> Focus</label>
+            <label><input type="checkbox" name="prefs" value="professional"> Professional</label>
+            <label><input type="checkbox" name="prefs" value="writing"> Writing</label>
+            <label><input type="checkbox" name="prefs" value="rest"> Rest</label>
+            <label><input type="checkbox" name="prefs" value="quiet"> Quiet</label>
+            <label><input type="checkbox" name="prefs" value="fun"> Fun</label>
+            <label><input type="checkbox" name="prefs" value="productivity"> Productivity</label>
+          </div>
+        </div>
+      
+        <button type="submit">Generate Schedule</button>
+      </form>
+      
+
+      {% if schedule %}
+      <h2>Generated Schedule</h2>
+      <div class="schedule-container">
+        {% for item in schedule %}
+          <div class="schedule-card">
+            <div class="time-block">{{ item.start }} – {{ item.end }}</div>
+            <div class="activity-name">{{ item.activity }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    
+</body>
+</html>

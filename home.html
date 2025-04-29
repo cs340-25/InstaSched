@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Welcome | WellnessGen{% endblock %}
+{% block content %}
+<div class="row align-items-center">
+  <div class="col-md-6">
+    <h1 class="display-4">Your Personalized Wellness Planner</h1>
+    <p class="lead">Seamlessly fill breaks in your day with curated activities.</p>
+    <a href="{{ url_for('build') }}" class="btn btn-primary btn-lg">Get Started</a>
+  </div>
+  <div class="col-md-6">
+    <img src="{{ url_for('static', filename='img/hero.jpg') }}" class="img-fluid rounded" alt="Wellness">
+  </div>
+</div>
+{% endblock %}

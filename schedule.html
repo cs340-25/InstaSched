@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Your Schedule | WellnessGen{% endblock %}
+
+{% block content %}
+  <h2>Your Schedule</h2>
+
+  <div class="d-flex justify-content-end mb-3">
+    <a href="{{ url_for('download_ics') }}" class="btn btn-success">
+      <i class="bi-calendar2-plus"></i> Export to Calendar
+    </a>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      {% if schedule %}
+        <div class="schedule-container">
+          {% for item in schedule %}
+            <div class="schedule-card shadow-sm mb-3">
+              <div class="time-block">
+                {{ item.start }} &ndash; {{ item.end }}
+              </div>
+              <div class="activity-name">{{ item.activity }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p>No schedule found. <a href="{{ url_for('build') }}">Build one now</a>.</p>
+      {% endif %}
+    </div>
+
+    <div class="col-lg-4">
+      {% if chart %}
+        <!-- store chart data as a JSON string in data-chart -->
+        <canvas id="timeChart" data-chart='{{ chart|tojson }}'></canvas>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

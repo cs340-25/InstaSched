@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Build Schedule | WellnessGen{% endblock %}
+{% block content %}
+<h2>Build Your Schedule</h2>
+<div class="build-card">
+  <form method="POST">
+    <div class="form-grid">
+      <div class="time-inputs">
+        <label for="start_time" data-bs-toggle="tooltip" title="When does your day begin?">Start Time (HH:MM):</label>
+        <input type="text" id="start_time" name="start_time" placeholder="08:00" required>
+
+        <label for="end_time" data-bs-toggle="tooltip" title="When does your day end?">End Time (HH:MM):</label>
+        <input type="text" id="end_time" name="end_time" placeholder="18:00" required>
+
+        <label for="busy_periods" data-bs-toggle="tooltip" title="Comma-separated busy slots: 09:00-10:00,13:00-14:00">Busy Periods:</label>
+        <input type="text" id="busy_periods" name="busy_periods" placeholder="optional">
+      </div>
+
+      <div class="preferences">
+        <h3>Select Your Preferences:</h3>
+        {% for tag in tags %}
+          <label><input type="checkbox" name="prefs" value="{{ tag }}"> {{ tag|capitalize }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Generate Schedule</button>
+  </form>
+</div>
+{% endblock %}
